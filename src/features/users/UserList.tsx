@@ -5,7 +5,7 @@ import { selectIsLoading, selectSearchInput, selectUsers, setSearchInput } from 
 import LoadingSpinner from '@/components/LoadingSpinner';
 import UserCard from './UserCard';
 import SearchBar from '@/components/SearchBar';
-import fetchUsers from '@/api/fetchUsers';
+import { fetchUsers } from '@/api/users';
 
 export interface UserProps {
 	id: number;
@@ -61,8 +61,8 @@ function UserList() {
 	);
 
 	return (
-		<section className="flex flex-col gap-y-5">
-			<h1 className="text-3xl self-center">Users List</h1>
+		<section className="flex flex-col items-center gap-y-5">
+			<h1 className="text-3xl">Users List</h1>
 			<SearchBar handleSearch={handleSearch} />
 			{loading ? <LoadingSpinner /> : userContent}
 		</section>

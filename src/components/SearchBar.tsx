@@ -8,7 +8,7 @@ function SearchBar({ handleSearch }: SearchBarProps) {
 	const handleSubmit = (e: SyntheticEvent) => e.preventDefault();
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className="w-full" onSubmit={handleSubmit}>
 			<input
 				type="text"
 				id="searchUsers"

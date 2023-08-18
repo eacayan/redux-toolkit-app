@@ -1,7 +1,7 @@
 import { AppDispatch } from '@/store';
 import { setIsLoading, setUsers } from '@/features/users/userSlice';
 
-const fetchUsers = () => async (dispatch: AppDispatch) => {
+export const fetchUsers = () => async (dispatch: AppDispatch) => {
 	try {
 		dispatch(setIsLoading(true));
 		const res = await fetch('https://jsonplaceholder.typicode.com/users');
@@ -13,5 +13,3 @@ const fetchUsers = () => async (dispatch: AppDispatch) => {
 		console.error(error);
 	}
 };
-
-export default fetchUsers;
