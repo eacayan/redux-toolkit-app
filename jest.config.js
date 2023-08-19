@@ -27,6 +27,7 @@ module.exports = async () => ({
 		'!<rootDir>/*.config.js',
 		'!<rootDir>/coverage/**',
 		'!<rootDir>/src/pages/*',
+		'!<rootDir>/src/store.ts',
 	],
 	testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
 	testEnvironment: 'jsdom',

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { selectIsLoading, selectSearchInput, selectUsers, setSearchInput } from '@/features/users/userSlice';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import UserCard from './UserCard';
+import UserCard from '../UserCard';
 import SearchBar from '@/components/SearchBar';
 import { fetchUsers } from '@/api/users';
 

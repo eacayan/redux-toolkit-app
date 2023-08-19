@@ -1,4 +1,4 @@
-import { UserProps } from '@/features/users/UserList';
+import { UserProps } from '@/features/users/UserList/UserList';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type UserSliceState = {
