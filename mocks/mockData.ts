@@ -1,4 +1,6 @@
-export const mockData = [
+import { UserSliceState } from '@/features/users/userSlice';
+
+export const mockUserData = [
 	{
 		id: 1,
 		name: 'Test Name 1',
@@ -14,3 +16,9 @@ export const mockData = [
 		address: { city: 'Makati', street: 'Street 2', suite: '222', zipcode: '2222' },
 	},
 ];
+
+export const mockStoreData: UserSliceState = {
+	usersArray: mockUserData,
+	searchInput: '',
+	isLoading: false,
+};

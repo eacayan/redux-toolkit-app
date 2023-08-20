@@ -16,10 +16,5 @@
 		"no-console": "error",
 		"no-await-in-loop": "off",
 		"next-plugin/no-globalAL": 1
-	},
-	"overrides": [
-		{
-			"files": ["*.test.ts", "*.test.tsx", "mockData.ts"]
-		}
-	]
+	}
 }

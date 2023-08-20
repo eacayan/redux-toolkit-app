@@ -12,7 +12,7 @@ function UserCard(details: UserProps) {
 		<li className="border border-1 border-gray-300 rounded-md p-3">
 			<p>Name: {name}</p>
 			<p>Email: {email}</p>
-			<p>Phone number: {phone}</p>
+			<p>Phone Number: {phone}</p>
 			<p>Address: {fullAddress}</p>
 
 			<button

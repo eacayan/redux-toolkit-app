@@ -11,6 +11,8 @@ const rootReducer = combineReducers({
 	users: userReducer,
 });
 
+// Recommended approach by Redux
+// https://redux.js.org/usage/writing-tests#setting-up-a-reusable-test-render-function
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
 	return configureStore({
 		reducer: rootReducer,

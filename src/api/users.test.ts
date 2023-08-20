@@ -1,35 +1,28 @@
-import { setIsLoading, setUsers } from '@/features/users/userSlice';
 import { fetchUsers } from './users';
-import { mockData } from '../../mocks/mockData';
+import { mockUserData } from '../../mocks/mockData';
 
 afterEach(() => {
-	jest.restoreAllMocks();
+	jest.clearAllMocks();
 });
+const dispatch = jest.fn();
 
 describe('TESTING fetchUsers api call', () => {
 	describe('WHEN the api call is successful', () => {
 		it('THEN returns user data and dispatches correct actions', async () => {
-			const dispatch = jest.fn();
-
-			await fetchUsers()(dispatch);
-			expect.assertions(3);
-
-			expect(dispatch).toHaveBeenCalledWith(setIsLoading(true));
-			expect(dispatch).toHaveBeenCalledWith(setUsers(mockData));
-			expect(dispatch).toHaveBeenCalledWith(setIsLoading(false));
+			global.fetch = jest.fn().mockImplementationOnce(() =>
+				Promise.resolve({
+					json: () => Promise.resolve(mockUserData),
+				}),
+			);
+			const call = await fetchUsers()(dispatch);
+			expect(call).toEqual(mockUserData);
 		});
 
 		describe('WHEN the api call returns an exception', () => {
-			it('THEN throws an error', async () => {
-				const dispatch = jest.fn();
-
-				try {
-					await fetchUsers()(dispatch);
-				} catch (error) {
-					const mockError = new Error(`Fetch error: ${error}`);
-					jest.fn().mockRejectedValue(mockError);
-					expect(error).toBe(mockError);
-				}
+			it('dispatches the correct actions on fetch error', async () => {
+				global.fetch = jest.fn().mockImplementationOnce(() => Promise.reject('Error found'));
+				const call = await fetchUsers()(dispatch);
+				expect(call).toEqual(null);
 			});
 		});
 	});

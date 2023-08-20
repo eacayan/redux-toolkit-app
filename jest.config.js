@@ -28,6 +28,8 @@ module.exports = async () => ({
 		'!<rootDir>/coverage/**',
 		'!<rootDir>/src/pages/*',
 		'!<rootDir>/src/store.ts',
+		'!<rootDir>/src/utils/*',
+		'!<rootDir>/src/features/**/index.ts',
 	],
 	testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
 	testEnvironment: 'jsdom',

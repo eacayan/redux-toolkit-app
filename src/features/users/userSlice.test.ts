@@ -1,16 +1,16 @@
-import { mockData } from '../../../mocks/mockData';
 import { userSlice } from './userSlice';
+import { mockStoreData, mockUserData } from '../../../mocks/mockData';
 
 const userReducer = userSlice.reducer;
 
-describe('TESTING userSlice reducer functions', () => {
-	describe('GIVEN setUsers function', () => {
+describe('TESTING userSlice reducer actions', () => {
+	describe('GIVEN setUsers action', () => {
 		describe('WHEN there are new users', () => {
-			it('THEN setUsers should run', () => {
+			it('THEN setUsers action should run', () => {
 				const initialState = { usersArray: [], searchInput: '', isLoading: false };
 				const newState = userReducer(initialState, {
 					type: 'users/setUsers',
-					payload: mockData,
+					payload: mockUserData,
 				});
 
 				expect(newState.usersArray).toHaveLength(2);
@@ -20,14 +20,10 @@ describe('TESTING userSlice reducer functions', () => {
 		});
 	});
 
-	describe('GIVEN deleteUsers function', () => {
+	describe('GIVEN deleteUsers action', () => {
 		describe('WHEN an id is set as payload to be deleted', () => {
-			it('THEN deleteUsers should delete the id', () => {
-				const initialState = {
-					usersArray: mockData,
-					isLoading: false,
-					searchInput: '',
-				};
+			it('THEN deleteUsers action should delete the user from the users list', () => {
+				const initialState = mockStoreData;
 				const newState = userReducer(initialState, {
 					type: 'users/deleteUser',
 					payload: 1,
@@ -39,14 +35,10 @@ describe('TESTING userSlice reducer functions', () => {
 		});
 	});
 
-	describe('GIVEN setSearchInput function', () => {
+	describe('GIVEN setSearchInput action', () => {
 		describe('WHEN an input value is given', () => {
-			it('THEN the setSearchInput function should set a new search input', () => {
-				const initialState = {
-					usersArray: mockData,
-					isLoading: false,
-					searchInput: '',
-				};
+			it('THEN the setSearchInput actuib should set a new search input', () => {
+				const initialState = mockStoreData;
 				const newState = userReducer(initialState, {
 					type: 'users/setSearchInput',
 					payload: 'test input',
@@ -57,14 +49,10 @@ describe('TESTING userSlice reducer functions', () => {
 		});
 	});
 
-	describe('GIVEN setLoading function', () => {
+	describe('GIVEN setLoading action', () => {
 		describe('WHEN loading state changes', () => {
-			it('THEN setLoading function should change the loading state', () => {
-				const initialState = {
-					usersArray: mockData,
-					isLoading: false,
-					searchInput: '',
-				};
+			it('THEN setLoading action should change the loading state', () => {
+				const initialState = mockStoreData;
 				const newState = userReducer(initialState, {
 					type: 'users/setIsLoading',
 					payload: true,

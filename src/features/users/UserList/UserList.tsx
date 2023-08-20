@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
-import { selectIsLoading, selectSearchInput, selectUsers, setSearchInput } from '@/features/users/userSlice';
+import { selectIsLoading, selectSearchInput, selectUsers } from '@/features/users/userSlice';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import UserCard from '../UserCard';
 import SearchBar from '@/components/SearchBar';
@@ -42,14 +42,10 @@ function UserList() {
 		appDispatch(fetchUsers());
 	}, [dispatch]);
 
-	const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch(setSearchInput(event.target.value));
-	};
-
 	const userContent = (
 		<>
 			{filteredUsers.length ? (
-				<ul className="flex gap-y-3 flex-col">
+				<ul className="flex gap-y-3 flex-col" aria-labelledby="users-list">
 					{filteredUsers.map((user) => (
 						<UserCard key={user.id} {...user} />
 					))}
@@ -63,7 +59,7 @@ function UserList() {
 	return (
 		<section className="flex flex-col items-center gap-y-5">
 			<h1 className="text-3xl">Users List</h1>
-			<SearchBar handleSearch={handleSearch} />
+			<SearchBar />
 			{loading ? <LoadingSpinner /> : userContent}
 		</section>
 	);

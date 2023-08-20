@@ -1,10 +1,13 @@
-import { ChangeEvent } from 'react';
+import { setSearchInput } from '@/features/users/userSlice';
+import { useDispatch } from 'react-redux';
 
-interface SearchBarProps {
-	handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+function SearchBar() {
+	const dispatch = useDispatch();
 
-function SearchBar({ handleSearch }: SearchBarProps) {
+	const handleSearch = (event: React.ChangeEvent<HTMLinput>) => {
+		dispatch(setSearchInput(event.target.value));
+	};
+
 	return (
 		<input
 			type="text"

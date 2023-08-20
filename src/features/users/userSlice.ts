@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { UserProps } from '@/features/users/UserList/UserList';
 
-type UserSliceState = {
+export type UserSliceState = {
 	usersArray: UserProps[];
 	searchInput: string;
 	isLoading: boolean;

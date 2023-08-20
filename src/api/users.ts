@@ -9,8 +9,9 @@ export const fetchUsers = () => async (dispatch: AppDispatch) => {
 
 		dispatch(setUsers(data));
 		dispatch(setIsLoading(false));
-	} catch (error) {
-		throw new Error('Fetch error');
-		// throw new Error(`Fetch error: ${error}`);
+
+		return data;
+	} catch (e) {
+		return null;
 	}
 };
