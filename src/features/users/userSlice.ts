@@ -1,5 +1,5 @@
-import { UserProps } from '@/features/users/UserList/UserList';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { UserProps } from '@/features/users/UserList/UserList';
 
 type UserSliceState = {
 	usersArray: UserProps[];
