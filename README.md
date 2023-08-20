@@ -12,4 +12,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Running Tests
 
-Run `npm run test` or `npm run test:watch` to view test coverage results.
+Run either commands to view test coverage results:
+
+```bash
+npm run test
+# or
+npm run test:watch
+```
